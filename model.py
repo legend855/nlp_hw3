@@ -149,9 +149,11 @@ class Seq2SeqModel(torch.nn.Module):
 
         # return a vector filled with indices
 
+        # not going to work: this should be indices
 
+        inputs = variable(torch.rand(batch_size))
 
-        raise NotImplementedError()
+        #raise NotImplementedError()
 
         ###############################
         ### Insert your code above ####
@@ -174,7 +176,8 @@ class Seq2SeqModel(torch.nn.Module):
         init_inputs = self.decoder_initial_inputs(batch_size)
 
         logits = self.embedding(z)
-        logits = F.relu(logits)
+        #logits = F.relu(logits)
+
         outputs, hidden = self.decoder(logits)
 
         outputs = self.project(outputs)

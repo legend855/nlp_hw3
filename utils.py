@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 from torch.nn import Parameter
-
+import torch.utils.data
 
 def get_sequences_lengths(sequences, masking=0, dim=1):
     if len(sequences.size()) > 2:

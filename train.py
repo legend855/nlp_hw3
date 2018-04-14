@@ -6,7 +6,6 @@ from dataset import TSVSentencePairDataset
 from model import Seq2SeqModel
 from utils import variable, cuda, argmax, get_sentence_from_indices
 
-
 def main():
     nb_epochs = 30
     batch_size = 64
@@ -24,7 +23,9 @@ def main():
     print('Dataset: {}'.format(len(dataset)))
 
     train_len = len(dataset) - val_len
+    
     dataset_train, dataset_val = torch.utils.data.dataset.random_split(dataset, [train_len, val_len])
+    #dataset_train, dataset_val = random_split(dataset, [train_len, val_len])
     print('Train {}, val: {}'.format(len(dataset_train), len(dataset_val)))
 
     data_loader_train = torch.utils.data.DataLoader(dataset_train, batch_size, shuffle=True)
